@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  holiday_id: 1
+  customer_id: 1
+  departureDate: 2015-01-28
+  numOfPassengers: 1
+
+two:
+  holiday_id: 1
+  customer_id: 1
+  departureDate: 2015-01-28
+  numOfPassengers: 1

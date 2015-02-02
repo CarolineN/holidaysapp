@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Holidaysapp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="banner">
+	<%= image_tag("sun1.jpg", :size => "160x110") %>
+	<b>Nolan's Travel </b>
+	<br><br>
+</div>
+<div id="nav">
+    <ul>
+    
+    <li><%= link_to "Travel News", 'http://www.breakingtravelnews.com/' %></li>
+	<li><%= link_to "Customers", customers_path%></li>
+	<li><%= link_to "Holidays Available ", holidays_path%></li>
+	<li><%=link_to "Bookings", bookings_path%></li>
+    
+	  
+    </ul>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
