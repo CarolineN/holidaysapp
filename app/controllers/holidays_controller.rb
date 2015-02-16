@@ -1,4 +1,5 @@
 class HolidaysController < ApplicationController
+before_filter :authorise, :only=>[:destroy, :edit, :show]
   # GET /holidays
   # GET /holidays.json
   def index

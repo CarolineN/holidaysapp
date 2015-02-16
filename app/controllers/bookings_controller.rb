@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+before_filter :authorise, :only=>[:destroy, :edit, :show]
   # GET /bookings
   # GET /bookings.json
   def index

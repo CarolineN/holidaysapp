@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150128183922) do
+ActiveRecord::Schema.define(:version => 20150211132108) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "holiday_id"
@@ -22,16 +22,8 @@ ActiveRecord::Schema.define(:version => 20150128183922) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "customers", :force => true do |t|
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "email"
-    t.integer  "phoneNumber"
-    t.date     "DOB"
-    t.integer  "passportNumber"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+# Could not dump table "customers" because of following StandardError
+#   Unknown type 'password_digest' for column 'password'
 
   create_table "holidays", :force => true do |t|
     t.string   "location"

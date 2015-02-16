@@ -14,15 +14,32 @@
 </div>
 <div id="nav">
     <ul>
+    <% if !signed_in? %>
+		<li><%= link_to "Sign In", signin_path %></li>
+		<li><%= link_to "Customer Sign In", cssignin_path %></li>
+	<% else %>
+		<li><Signed in as <%= @current_user.username %></li>
+		<li><%= link_to "Sign Out", signout_path %></li>
+		 <li><%= link_to "Travel News", 'http://www.breakingtravelnews.com/' %></li>
+	      <li><%= link_to "Customers", customers_path%></li>
+	    <li><%= link_to "Holidays Available ", holidays_path%></li>
+	     <li><%=link_to "Bookings", bookings_path%></li>
+	<% end %>
+	</ul>
+	</div>
+	<div id= "nav">
+	<ul>
+	<% if cssigned_in? %>
+		<li><%= link_to "Customer Sign Out", cssignout_path %></li>
+		<li><%= link_to "Holidays Available ", holidays_path%></li>
+		 <li><%= link_to "Travel News", 'http://www.breakingtravelnews.com/' %></li>
+   </ul>
+	<% end %>
+	</div>
     
-    <li><%= link_to "Travel News", 'http://www.breakingtravelnews.com/' %></li>
-	<li><%= link_to "Customers", customers_path%></li>
-	<li><%= link_to "Holidays Available ", holidays_path%></li>
-	<li><%=link_to "Bookings", bookings_path%></li>
-    
-	  
-    </ul>
-</div>
+
+
+
 
 <%= yield %>
 

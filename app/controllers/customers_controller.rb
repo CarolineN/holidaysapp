@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+#before_filter :authorise, :only=>[:destroy, :edit, :show]
   # GET /customers
   # GET /customers.json
   def index
@@ -52,6 +53,12 @@ class CustomersController < ApplicationController
       end
     end
   end
+  
+  def register(customer)
+	if @customer.save
+		Blogmailer.register(@customer)
+	end
+ end 
 
   # PUT /customers/1
   # PUT /customers/1.json

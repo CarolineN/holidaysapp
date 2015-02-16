@@ -1,0 +1,16 @@
+<h1 align=center> Customer Sign In </h1>
+<%= form_tag createcs_path do %>
+	<table align = center>
+	<tr>
+		<td><%= label_tag :email %>
+		<td><%= text_field_tag :email,params[:email] %>
+    </tr>
+    <tr>
+		<td><%= label_tag :password %>
+		<td><%= password_field_tag :password %>
+	<tr>
+	<tr>
+		<td><%= submit_tag "Sign in " %></td>
+	</tr>
+	</table>
+<% end %>

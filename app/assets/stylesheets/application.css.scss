@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+
  #banner {
   background: #66C2E0;
   padding-top: 40px;
@@ -28,9 +29,7 @@
 	
 	
   }
- #h2{
-   color: #600000
- }
+  
   
  #bottom{
    background: #9c9;
@@ -39,6 +38,16 @@
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #600000 ;
   text-align: center;
+ }
+ #Box{
+ 
+ background-color: lightgrey;
+ width:250px;
+ padding:15px;
+ border: 10px solid yellow;
+ margin:15px;
+ 
+ 
  }
 
 
