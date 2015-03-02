@@ -1,14 +1,11 @@
-<h1>Listing holidays</h1>
+<h1>Holidays Available</h1>
 
 <table>
   <tr>
     <th>Location</th>
     <th>Price</th>
     <th>Hotelname</th>
-    <th>Hotelimage</th>
     <th>Nights</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
     <th>Noofrooms</th>
     <th></th>
     <th></th>
@@ -22,16 +19,19 @@
     <td><%= holiday.hotelName %></td>
     <td><%= holiday.hotelImage %></td>
     <td><%= holiday.nights %></td>
-    <td><%= holiday.latitude %></td>
-    <td><%= holiday.longitude %></td>
+   
     <td><%= holiday.noOfRooms %></td>
     <td><%= link_to 'Show', holiday %></td>
-    <td><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
+   <% if !cssigned_in? %>
+	<td><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
     <td><%= link_to 'Destroy', holiday, confirm: 'Are you sure?', method: :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Holiday', new_holiday_path %>
+<% if !cssigned_in? %>
+	<%= link_to 'New Holiday', new_holiday_path %>
+<% end %>
+<%= link_to 'Back', root_path %>

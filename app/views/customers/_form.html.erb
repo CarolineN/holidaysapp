@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :DOB %><br />
-    <%= f.date_select :DOB %>
+      <%= f.date_select :DOB,:start_year =>1950, :end_year => 2000 %>
   </div>
   <div class="field">
     <%= f.label :passportNumber %><br />

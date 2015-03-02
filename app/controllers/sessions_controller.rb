@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	before_filter :signed_in?
+	before_filter :cssigned_in?
   def new
   end
 
@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 	user=User.find_by_username(params[:username])
 	if user && user.authenticate(params[:password])
 		session[:user_id]= user.id
-		redirect_to user
+		redirect_to root_path
 	else
 		flash.now[:error]="Invalid name/password combination."
 		render 'new'
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 	else
 		flash[:notice]="You need to sign in first"
 	end
-		redirect_to signin_path
+		redirect_to root_path
   end
   def newcs
   end

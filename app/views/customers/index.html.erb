@@ -7,8 +7,6 @@
     <th>Email</th>
     <th>Phonenumber</th>
     <th>Dob</th>
-    <th>Passportnumber</th>
-    <th>Password</th>
     <th></th>
     <th></th>
   </tr>
@@ -20,8 +18,6 @@
     <td><%= customer.email %></td>
     <td><%= customer.phoneNumber %></td>
     <td><%= customer.DOB %></td>
-    <td><%= customer.passportNumber %></td>
-	<td><%= customer.password_digest %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>

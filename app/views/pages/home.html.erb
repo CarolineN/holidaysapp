@@ -1,13 +1,43 @@
-<h2>Home</h2>
-<p>New User ?<%=link_to "Sign up Now!", new_user_path%></p>
-<%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-<p>Existing user ? <%=link_to "Existing User!", signin_path %></p>
-<br>
-<br>
-<br><br><br><br>
-<div id="Box">
-<h1>Caroline Nolan</h1>
-<%= link_to "GitHub", 'http://www.github.com/' %>
+
+	
+	
+	<div id="content-container1">
+		<div id="content-container2">
+			<div id="section-navigation">
+				<ul>
+					<li>Name:Caroline</li>
+					<li>Email:
+					caroline.nolan2@student.dit.ie</li>
+					<li>New Customer?</li>
+					<li><%= link_to "Register here!", new_customer_path%></li></li>
+					<% if cssigned_in? %>
+							<div id= "search">
+							<%= render :partial =>'holidays/search' %>
+							</div>
+					<% end %>
+				</ul>
+			</div>
+			<div id="content">
+				<h2>
+					Welcome To Nolan Travel
+				
+					<br>
+					<br>
+					<p>Find us here:</p>
+					<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{53.373718}%2C#{-6.218709}" %>
+				</h2>
+				
+			</div>
+			<div id="aside">
+				<h3>
+					Contact Us:
+				</h3>
+				<p>Nolan Travel specialises in cheap package holidays tailored to suit the needs of modern Irish families. A market leader, we have built our reputation on offering holidaymakers exclusive Holiday Villages, SplashWorld Resorts and Kids Clubs that aren‘t available from anyone else in Ireland.</p>
+				<p>Whether you‘re looking for family holidays, all inclusive packages, adult holidays or just some time out on the beach, you can find your ideal escape at the best price with Nolan Travel.</p>
+			</div>
+			<div id="footer">
+				By Caroline Nolan
+			</div>
+		</div>
+	</div>
 </div>

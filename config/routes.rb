@@ -1,4 +1,6 @@
 Holidaysapp::Application.routes.draw do
+  resources :reviews
+
   get "sessions/new"
 
   get "sessions/create"
@@ -15,7 +17,12 @@ Holidaysapp::Application.routes.draw do
 
   resources :users
 
-  resources :holidays
+  resources :holidays do
+	resources :reviews
+  end 
+  
+ 
+  
   
   resources :sessions
   match '/signin', :to =>'sessions#new'
@@ -24,6 +31,7 @@ Holidaysapp::Application.routes.draw do
   match '/cssignin/', :to=>'sessions#newcs'
   match '/cssignout/', :to=>'sessions#destroycs'
   match '/createcs/', :to=>'sessions#createcs'
+  match '/search', :to=>'holidays#search'
   
 
   # The priority is based upon order of creation:

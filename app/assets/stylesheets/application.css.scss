@@ -11,12 +11,123 @@
  *= require_self
  *= require_tree .
  */
+ 
+#container
+{
+	margin: 0 auto;
+	width: 100%;
+	background: #fff;
+}
 
+#header
+{
+	background: #ccc;
+	padding: 20px;
+}
+
+#header h1 { margin: 0; }
+
+#navigation
+{
+	float: left;
+	width: 100%;
+	background: #333;
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#navigation li a:hover { background: #383; }
+
+#content-container1
+{
+	float: left;
+	width: 100%;
+	background: #fff url(/wp-content/uploads/layout-three-liquid-background1.gif) repeat-y 20% 0;
+}
+
+#content-container2
+{
+	float: left;
+	width: 100%;
+	background: url(/wp-content/uploads/layout-three-liquid-background2.gif) repeat-y 80% 0;
+}
+
+#section-navigation
+{
+	float: left;
+	width: 16%;
+	padding: 20px 0;
+	margin: 0 2%;
+	display: inline;
+}
+
+#section-navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#section-navigation ul li
+{
+	margin: 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+}
+
+#content
+{
+	float: left;
+	width: 56%;
+	padding: 20px 0;
+	margin: 0 0 0 2%;
+}
+
+#content h2 { margin: 0; }
+
+#aside
+{
+	float: right;
+	width: 16%;
+	padding: 20px 0;
+	margin: 0 2% 0 0;
+	display: inline;
+}
+
+#aside h3 { margin: 0; }
+
+#footer
+{
+	clear: both;
+	background:#66C2E0;
+	text-align: right;
+	padding: 15px;
+	height: 1%;
+}
 
  #banner {
   background: #66C2E0;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 2px;
    
   border-bottom: 3px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
@@ -31,6 +142,7 @@
   }
   
   
+  
  #bottom{
    background: #9c9;
   padding: 10px;
@@ -39,6 +151,12 @@
   color: #600000 ;
   text-align: center;
  }
+ 
+ #content-container1{
+	float: left;
+	width: 100%;
+	background: #FFFF85;
+}
  #Box{
  
  background-color: lightgrey;
@@ -110,7 +228,7 @@
 }
 
 #nav {
-  background-color: #00FFFF;
+  background-color: #80E6FF;
   padding: 0 0.7em;
   white-space: nowrap;
 }

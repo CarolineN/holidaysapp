@@ -1,5 +1,5 @@
 class HolidaysController < ApplicationController
-before_filter :authorise, :only=>[:destroy, :edit, :show]
+before_filter :authorise, :only=>[:destroy, :edit]
   # GET /holidays
   # GET /holidays.json
   def index
@@ -10,11 +10,21 @@ before_filter :authorise, :only=>[:destroy, :edit, :show]
       format.json { render json: @holidays }
     end
   end
+  def search 
+	@holidays = Holiday.search params[:q]
+	unless @holidays.empty?
+		render 'index'
+	else
+		flash[:notice]= 'No holidays found'
+		render 'index'
+	end
+  end
 
   # GET /holidays/1
   # GET /holidays/1.json
   def show
     @holiday = Holiday.find(params[:id])
+    @nearby = Holiday.near(@holiday.location, 100, :order => :distance, :units => :km)
 
     respond_to do |format|
       format.html # show.html.erb

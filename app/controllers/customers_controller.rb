@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
-#before_filter :authorise, :only=>[:destroy, :edit, :show]
+before_filter :authorise, :only=>[:destroy, :edit]
+
   # GET /customers
   # GET /customers.json
   def index
@@ -59,6 +60,12 @@ class CustomersController < ApplicationController
 		Blogmailer.register(@customer)
 	end
  end 
+ 
+ def over_18
+  if DOB + 18.years >= Date.today
+    errors.add(:DOB, "can't be under 18")
+  end
+end
 
   # PUT /customers/1
   # PUT /customers/1.json

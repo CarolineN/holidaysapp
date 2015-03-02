@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <b>Price:</b>
+  <b>Price based on(flights and hotel):</b>
   <%= @holiday.price %>
 </p>
 
@@ -14,30 +14,64 @@
   <b>Hotelname:</b>
   <%= @holiday.hotelName %>
 </p>
-<br>
-<%= image_tag(@holiday.hotelImage ,:size=>"150x150") %>
-<br><br><br><br><br><br><br><br>
+<p>
+	<b>Nights:</b>
+	<%= @holiday.nights %>
+</p>
+<p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@holiday.latitude}%2C#{@holiday.longitude}" %>
+</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p>
 
 
+<h3>Near by Hotels</h3>
+<ul>
+<% @nearby.each do|n| %>
+ <li><%= link_to n.location, n %> (<%=n.distance.round(2) %> km)</li>
+<%end%>
+</ul>
 
-<% if @holiday.bookings.empty? %>
-	<p> There are no bookings for this holiday</p>
-<%else %>
-	<h2> These are the current bookings for this holiday</h2>
-		<%@holiday.bookings.each do |b| %>
-			<br>
-			<p><b>Customer Name:</b></p>
-			<%=b.customer.firstName %>
+<br><br>
+<p>******************************</p>
+<% if !cssigned_in? %>
+
+	<% if @holiday.bookings.empty? %>
+		<p> There are no bookings for this holiday</p>
+	<%else %>
+		<h2> These are the current bookings for this holiday</h2>
+			<%@holiday.bookings.each do |b| %>
+				<br>
+				<p><b>Customer Name:</b></p>
+				<%=b.customer.firstName %>
 			
-			<p><b>Departure Date:</b></p>
-			<%=b.departureDate%>
-			<br>
-			<br>
+				<p><b>Departure Date:</b></p>
+				<%=b.departureDate%>
+				<br>
+				<br>
 			
 			<p>***********************</p>
 		<%end%>
 	<%end%>
+<% end %>
+<h2>Please review this holiday</h2>
+	<%= form_for([@holiday, Review.new]) do |f| %>
+	<%=f.text_area :content, :rows =>3%>
+	<div class ="actions">
+	<%= f.submit "Post Review!" %>
+	</div>
+<% end %>
 
-
+<% if @holiday.reviews.empty?%>
+	<h3>You are the first to review this holiday </h3>
+<% else %>
+	<h2>What others felt about this holiday </h2>
+	<% @holiday.reviews.reverse.each do |review| %>
+	<p><%= review.content %>
+	</p>
+<% end %>
+<% end %>
+<br>
 <%= link_to 'Edit', edit_holiday_path(@holiday) %> |
 <%= link_to 'Back', holidays_path %>
+<%= link_to 'Book this Holiday', new_booking_path %>

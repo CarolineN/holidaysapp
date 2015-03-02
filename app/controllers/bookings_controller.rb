@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
-before_filter :authorise, :only=>[:destroy, :edit, :show]
+before_filter :authorise, :only=>[:destroy, :edit]
   # GET /bookings
   # GET /bookings.json
+  
   def index
-    @bookings = Booking.all
-
-    respond_to do |format|
+  
+  @bookings = Booking.all
+	respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bookings }
     end
